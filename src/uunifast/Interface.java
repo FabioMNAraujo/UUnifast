@@ -19,8 +19,8 @@ public class Interface extends javax.swing.JFrame {
     private Parser parser;
     private Parser p;
     private String pathFile2="";
-    private String browsePath="";
-    private String saveAsPath="";
+    private String browsePath="out.xml";
+    private String saveAsPath="out2.tex";
     
     public Interface() {
         initComponents();
@@ -599,47 +599,75 @@ public class Interface extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private String outBox(ArrayList<Double> list,String mediane,int j) {
-        String resultat =   "\\begin{tikzpicture}[thick, framed]\n"+
-                            "\t\\draw (7.5,3) node[above]{$ \\textsc{Taux utilisation ?}$};\n" +
-                            "\t\\filldraw[fill=green!20] (?,1) rectangle (?,2);\n" +
-                            "\t\\draw (?,1) -- (?,2);\n"+
-                            "\t\\draw (?,1.5) -- (?,1.5);\n" +
-                            "\t\\draw (?,1.5) -- (?,1.5);\n" +
-                            "\t\\draw (?,1.39) -- (?,1.61);\n" +
-                            "\t\\draw (?,1.39) -- (?,1.61);";
-        resultat = resultat.replaceFirst("[?]", ""+j/10.0);
+        String resultat =   "\t\\filldraw[fill=green!20] (?,?) rectangle (?,?);\n" +
+                            "\t\\draw (?,?) -- (?,?);\n"+
+                            "\t\\draw (?,?) -- (?,?);\n" +
+                            "\t\\draw (?,?) -- (?,?);\n" +
+                            "\t\\draw (?,?) -- (?,?);\n" +
+                            "\t\\draw (?,?) -- (?,?);";
+        resultat = resultat.replaceFirst("[?]", (j-0.3)+"");
         resultat = resultat.replaceFirst("[?]", list.get(24).toString().substring(0, 5));
+        resultat = resultat.replaceFirst("[?]", (j+0.3)+"");
         resultat = resultat.replaceFirst("[?]", list.get(74).toString().substring(0, 5));
+        
+        resultat = resultat.replaceFirst("[?]", (j-0.3)+"");
         resultat = resultat.replaceFirst("[?]", mediane.substring(0, 5));
+        resultat = resultat.replaceFirst("[?]", (j+0.3)+"");
         resultat = resultat.replaceFirst("[?]", mediane.substring(0, 5));
+        
+        resultat = resultat.replaceFirst("[?]", (j)+"");
         resultat = resultat.replaceFirst("[?]", list.get(0).toString().substring(0, 5));
+        resultat = resultat.replaceFirst("[?]", (j)+"");
         resultat = resultat.replaceFirst("[?]", list.get(24).toString().substring(0, 5));
+        
+        resultat = resultat.replaceFirst("[?]", (j)+"");
         resultat = resultat.replaceFirst("[?]", list.get(74).toString().substring(0, 5));
+        resultat = resultat.replaceFirst("[?]", (j)+"");
         resultat = resultat.replaceFirst("[?]", list.get(99).toString().substring(0, 5));
+        
+        resultat = resultat.replaceFirst("[?]", (j-0.11)+"");
         resultat = resultat.replaceFirst("[?]", list.get(0).toString().substring(0, 5));
+        resultat = resultat.replaceFirst("[?]", (j+0.11)+"");
         resultat = resultat.replaceFirst("[?]", list.get(0).toString().substring(0, 5));
+        
+        resultat = resultat.replaceFirst("[?]", (j-0.11)+"");
         resultat = resultat.replaceFirst("[?]", list.get(99).toString().substring(0, 5));
+        resultat = resultat.replaceFirst("[?]", (j+0.11)+"");
         resultat = resultat.replaceFirst("[?]", list.get(99).toString().substring(0, 5));
         return resultat;
+    }
+    private String headerTiks(){
+        return "\\begin{tikzpicture}[thick, framed]\n";
     }
     private String headerTex(){
         return "\\documentclass{article}\n" + "\\usepackage{tikz}\n" + "\\usetikzlibrary{arrows,backgrounds,snakes}\n" +"\\begin{document}\n"+"\\begin{center}\n";
     }
     private String footerTiks(){
-        return "\\draw (0,0) -- (15,0);\n" +
-                "    \\draw[snake=ticks,segment length=1.5 cm] (0,0) -- (15.1,0);\n" +
-                "	\\draw (0,0) -- (0,-0.1) node[anchor=north,fill=white] {0};\n" +
-                "	\\draw (1.5,0) -- (1.5,-0.1) node[anchor=north,fill=white] {0.1};\n" +
-                "	\\draw (3,0) -- (3,-0.1) node[anchor=north,fill=white] {0.2};\n" +
-                "	\\draw (4.5,0) -- (4.5,-0.1) node[anchor=north,fill=white] {0.3};\n" +
-                "	\\draw (6,0) -- (6,-0.1) node[anchor=north,fill=white] {0.4};\n" +
-                "	\\draw (7.5,0) -- (7.5,-0.1) node[anchor=north,fill=white] {0.5};\n" +
-                "	\\draw (9,0) -- (9,-0.1) node[anchor=north,fill=white] {0.6};\n" +
-                "	\\draw (10.5,0) -- (10.5,-0.1) node[anchor=north,fill=white] {0.7};\n" +
-                "	\\draw (12,0) -- (12,-0.1) node[anchor=north,fill=white] {0.8};\n" +
-                "	\\draw (13.5,0) -- (13.5,-0.1) node[anchor=north,fill=white] {0.9};\n" +
-                "	\\draw (15,0) -- (15,-0.1) node[anchor=north,fill=white] {1};\n" +
-                "\\end{tikzpicture}\n" ;
+        return "\\draw (0,0) -- (10,0);\n" +
+"\\draw (0,0) -- (0,15);\n" +
+"\\draw (0,0) -- (0,-0.3) node[fill=white] {0.0};                                                                                                                                 \n" +
+"\\draw (0,0.0) -- (-0.5,0.0) node[fill=white] {0.0};                                                                                                                             \n" +
+"\\draw (1,0) -- (1,-0.3) node[fill=white] {0.1};                                                                                                                                 \n" +
+"\\draw (0,1.5) -- (-0.5,1.5) node[fill=white] {0.1};                                                                                                                             \n" +
+"\\draw (2,0) -- (2,-0.3) node[fill=white] {0.2};                                                                                                                                 \n" +
+"\\draw (0,3.0) -- (-0.5,3.0) node[fill=white] {0.2};                                                                                                                             \n" +
+"\\draw (3,0) -- (3,-0.3) node[fill=white] {0.3};                                                                                                                                 \n" +
+"\\draw (0,4.5) -- (-0.5,4.5) node[fill=white] {0.3};                                                                                                                             \n" +
+"\\draw (4,0) -- (4,-0.3) node[fill=white] {0.4};                                                                                                                                 \n" +
+"\\draw (0,6.0) -- (-0.5,6.0) node[fill=white] {0.4};                                                                                                                             \n" +
+"\\draw (5,0) -- (5,-0.3) node[fill=white] {0.5};                                                                                                                                 \n" +
+"\\draw (0,7.5) -- (-0.5,7.5) node[fill=white] {0.5};                                                                                                                             \n" +
+"\\draw (6,0) -- (6,-0.3) node[fill=white] {0.6};                                                                                                                                 \n" +
+"\\draw (0,9.0) -- (-0.5,9.0) node[fill=white] {0.6};                                                                                                                             \n" +
+"\\draw (7,0) -- (7,-0.3) node[fill=white] {0.7};                                                                                                                                 \n" +
+"\\draw (0,10.5) -- (-0.5,10.5) node[fill=white] {0.7};                                                                                                                           \n" +
+"\\draw (8,0) -- (8,-0.3) node[fill=white] {0.8};                                                                                                                                 \n" +
+"\\draw (0,12.0) -- (-0.5,12.0) node[fill=white] {0.8};                                                                                                                           \n" +
+"\\draw (9,0) -- (9,-0.3) node[fill=white] {0.9};                                                                                                                                 \n" +
+"\\draw (0,13.5) -- (-0.5,13.5) node[fill=white] {0.9};                                                                                                                           \n" +
+"\\draw (10,0) -- (10,-0.3) node[fill=white] {1.0};                                                                                                                               \n" +
+"\\draw (0,15.0) -- (-0.5,15.0) node[fill=white] {1.0};\n" +
+"\\end{tikzpicture}" ;
     }
     private String footerTex(){
         return  "\\end{center}"+"\\end{document}";
@@ -668,13 +696,14 @@ public class Interface extends javax.swing.JFrame {
             list.sort(sorter);
             double mediane = (list.get(50).doubleValue()+list.get(49).doubleValue())/2;
             box += outBox(list,mediane+"",j)+"\n";
-            box += footerTiks();
         }
         String footerString = footerTex();
         try {
             FileWriter fw = new FileWriter(new File(saveAsPath));
-            fw.write(headString);
+            fw.write(headerTex());
+            fw.write(headerTiks());
             fw.write(box);
+            fw.write(footerTiks());
             fw.write(footerString);
             fw.close();
         } catch (IOException ex) {
