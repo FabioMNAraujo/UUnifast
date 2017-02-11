@@ -480,7 +480,7 @@ public class Interface extends javax.swing.JFrame {
         {
             for(int j=0;j<ntp;j++)
             {  
-                UUnifast u = new UUnifast(i/10.0, th, nt, harmonicCheck.isSelected(),schedulable.isSelected());
+                UUnifast u = new UUnifast(i/10.0, th, nt, harmonicCheck1.isSelected(),schedulable1.isSelected());
                 tasksets.add(u.ts);
             }
         }
@@ -603,8 +603,8 @@ public class Interface extends javax.swing.JFrame {
                             "\t\\draw (?,?) -- (?,?);\n"+
                             "\t\\draw (?,?) -- (?,?);\n" +
                             "\t\\draw (?,?) -- (?,?);\n" +
-                            "\t\\draw (?,?) -- (?,?);\n" +
-                            "\t\\draw (?,?) -- (?,?);";
+                            "\t\\draw (?,?) -- (?,?) node[anchor=north,fill=white] {?};\n" +
+                            "\t\\draw (?,?) -- (?,?) node[anchor=south,fill=white] {?};";
         resultat = resultat.replaceFirst("[?]", (j-0.3)+"");
         resultat = resultat.replaceFirst("[?]", list.get(24).toString().substring(0, 5));
         resultat = resultat.replaceFirst("[?]", (j+0.3)+"");
@@ -629,11 +629,14 @@ public class Interface extends javax.swing.JFrame {
         resultat = resultat.replaceFirst("[?]", list.get(0).toString().substring(0, 5));
         resultat = resultat.replaceFirst("[?]", (j+0.11)+"");
         resultat = resultat.replaceFirst("[?]", list.get(0).toString().substring(0, 5));
+        resultat = resultat.replaceFirst("[?]", (list.get(0).doubleValue()/20+"").substring(0,5));
         
         resultat = resultat.replaceFirst("[?]", (j-0.11)+"");
         resultat = resultat.replaceFirst("[?]", list.get(99).toString().substring(0, 5));
         resultat = resultat.replaceFirst("[?]", (j+0.11)+"");
         resultat = resultat.replaceFirst("[?]", list.get(99).toString().substring(0, 5));
+        resultat = resultat.replaceFirst("[?]", (list.get(99).doubleValue()/20+"").substring(0,5));
+        
         return resultat;
     }
     private String headerTiks(){

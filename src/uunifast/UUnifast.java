@@ -41,7 +41,7 @@ public class UUnifast {
             ts = new TaskSet(tasks);
             if(!isSchedulable)
                 break;
-        }while(!ts.worstCaseResp());
+        }while(!ts.worstCaseResp() || ts.processUtil() > (uTotal+0.1));
     }   
     private ArrayList<Task> generateTasks() {
         ArrayList<Task> tasks=new ArrayList<>();
@@ -55,6 +55,7 @@ public class UUnifast {
             uTask = sum - nextSum;
             Task t = getTask(uTask, (int) tHarmonic, 1);
             tasks.add(t);
+            sum = nextSum;
             j = 1;
         }
         int i;
