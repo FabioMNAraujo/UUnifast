@@ -644,30 +644,30 @@ public class Interface extends javax.swing.JFrame {
     }
     private String footerTiks(){
         return "\\draw (0,0) -- (10,0);\n" +
-"\\draw (0,0) -- (0,15);\n" +
+"\\draw (0,0) -- (0,20);\n" +
 "\\draw (0,0) -- (0,-0.3) node[fill=white] {0.0};                                                                                                                                 \n" +
-"\\draw (0,0.0) -- (-0.5,0.0) node[fill=white] {0.0};                                                                                                                             \n" +
+"\\draw (0,0) -- (-0.5,0) node[fill=white] {0.0};\n" +
 "\\draw (1,0) -- (1,-0.3) node[fill=white] {0.1};                                                                                                                                 \n" +
-"\\draw (0,1.5) -- (-0.5,1.5) node[fill=white] {0.1};                                                                                                                             \n" +
+"\\draw (0,2) -- (-0.5,2) node[fill=white] {0.1};\n" +
 "\\draw (2,0) -- (2,-0.3) node[fill=white] {0.2};                                                                                                                                 \n" +
-"\\draw (0,3.0) -- (-0.5,3.0) node[fill=white] {0.2};                                                                                                                             \n" +
+"\\draw (0,4) -- (-0.5,4) node[fill=white] {0.2};\n" +
 "\\draw (3,0) -- (3,-0.3) node[fill=white] {0.3};                                                                                                                                 \n" +
-"\\draw (0,4.5) -- (-0.5,4.5) node[fill=white] {0.3};                                                                                                                             \n" +
+"\\draw (0,6) -- (-0.5,6) node[fill=white] {0.3};\n" +
 "\\draw (4,0) -- (4,-0.3) node[fill=white] {0.4};                                                                                                                                 \n" +
-"\\draw (0,6.0) -- (-0.5,6.0) node[fill=white] {0.4};                                                                                                                             \n" +
+"\\draw (0,8) -- (-0.5,8) node[fill=white] {0.4};\n" +
 "\\draw (5,0) -- (5,-0.3) node[fill=white] {0.5};                                                                                                                                 \n" +
-"\\draw (0,7.5) -- (-0.5,7.5) node[fill=white] {0.5};                                                                                                                             \n" +
+"\\draw (0,10) -- (-0.5,10) node[fill=white] {0.5};\n" +
 "\\draw (6,0) -- (6,-0.3) node[fill=white] {0.6};                                                                                                                                 \n" +
-"\\draw (0,9.0) -- (-0.5,9.0) node[fill=white] {0.6};                                                                                                                             \n" +
+"\\draw (0,12) -- (-0.5,12) node[fill=white] {0.6};\n" +
 "\\draw (7,0) -- (7,-0.3) node[fill=white] {0.7};                                                                                                                                 \n" +
-"\\draw (0,10.5) -- (-0.5,10.5) node[fill=white] {0.7};                                                                                                                           \n" +
+"\\draw (0,14) -- (-0.5,14) node[fill=white] {0.7};\n" +
 "\\draw (8,0) -- (8,-0.3) node[fill=white] {0.8};                                                                                                                                 \n" +
-"\\draw (0,12.0) -- (-0.5,12.0) node[fill=white] {0.8};                                                                                                                           \n" +
+"\\draw (0,16) -- (-0.5,16) node[fill=white] {0.8};\n" +
 "\\draw (9,0) -- (9,-0.3) node[fill=white] {0.9};                                                                                                                                 \n" +
-"\\draw (0,13.5) -- (-0.5,13.5) node[fill=white] {0.9};                                                                                                                           \n" +
-"\\draw (10,0) -- (10,-0.3) node[fill=white] {1.0};                                                                                                                               \n" +
-"\\draw (0,15.0) -- (-0.5,15.0) node[fill=white] {1.0};\n" +
-"\\end{tikzpicture}" ;
+"\\draw (0,18) -- (-0.5,18) node[fill=white] {0.9};\n" +
+"\\draw (10,0) -- (10,-0.3) node[fill=white] {1.0};                                                                                                                                 \n" +
+"\\draw (0,20) -- (-0.5,20) node[fill=white] {1.0};\n" +
+"\\end{tikzpicture}\n";
     }
     private String footerTex(){
         return  "\\end{center}"+"\\end{document}";
@@ -691,7 +691,7 @@ public class Interface extends javax.swing.JFrame {
             {
                 TaskSet ts = p.getTaskSet(i);
                 ts.genSleepTask();
-                list.add(new Double(ts.processUtil()*15));
+                list.add(new Double(ts.processUtil()*20));
             }
             list.sort(sorter);
             double mediane = (list.get(50).doubleValue()+list.get(49).doubleValue())/2;
